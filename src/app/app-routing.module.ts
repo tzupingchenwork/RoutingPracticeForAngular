@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 
 import { LayoutGuard } from './layout/layout.guard';
+import { EnsureLoginGuard } from './login/ensure-login.guard';
 
 const routes: Routes = [
   {
@@ -39,7 +40,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canDeactivate: [EnsureLoginGuard]
   },
   { // 預設路由
     path: '',
